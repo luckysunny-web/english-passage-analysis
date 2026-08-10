@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="&#xC6B4;&#xC591;&#xACE0;&#xB4F1;&#xD559;&#xAD50; 2&#xD559;&#xB144; &#xC601;&#xC5B4; &#xD559;&#xC2B5; &#xC790;&#xB8CC;">
+  <title>Sunny Teacher | English Archive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="site-shell">
+    <header class="hero">
+      <p class="eyebrow">ENGLISH PASSAGE ANALYSIS</p>
+      <h1>Sunny Teacher | English Archive</h1>
+      <p class="subtitle">&#xC6B4;&#xC591;&#xACE0;&#xB4F1;&#xD559;&#xAD50; 2&#xD559;&#xB144; &#xC601;&#xC5B4; &#xD559;&#xC2B5; &#xC790;&#xB8CC;</p>
+    </header>
+
+    <section class="problem-section" aria-labelledby="problem-list-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PASSAGE LIBRARY</p>
+          <h2 id="problem-list-title">&#xBB38;&#xC81C; &#xBAA9;&#xB85D;</h2>
+        </div>
+        <p id="problem-count" class="problem-count" aria-live="polite"></p>
+      </div>
+      <div id="problem-list" class="problem-list"></div>
+      <p id="empty-message" class="empty-message" hidden>&#xB4F1;&#xB85D;&#xB41C; &#xBB38;&#xC81C;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+    </section>
+  </main>
+
+  <script src="problem-list.js"></script>
+  <script>
+    (function () {
+      const problems = Array.isArray(window.ENGLISH_PASSAGE_PROBLEMS)
+        ? window.ENGLISH_PASSAGE_PROBLEMS.slice().sort((a, b) => a.number - b.number)
+        : [];
+      const list = document.getElementById('problem-list');
+      const count = document.getElementById('problem-count');
+      const emptyMessage = document.getElementById('empty-message');
+
+      count.innerHTML = `&#xCD1D; ${problems.length}&#xAC1C;`;
+      emptyMessage.hidden = problems.length !== 0;
+
+      problems.forEach((problem) => {
+        const link = document.createElement('a');
+        link.className = 'problem-card';
+        link.href = problem.href;
+        link.innerHTML = `
+          <span class="problem-number">&#x270F;&#xFE0F; &#xBB38;&#xC81C;-${problem.number}</span>
+          <span class="problem-title">${problem.title}</span>
+          <span class="open-label">&#xBD84;&#xC11D; &#xBCF4;&#xAE30; <span aria-hidden="true">&rarr;</span></span>
+        `;
+        list.appendChild(link);
+      });
+    }());
+  </script>
+</body>
+</html>
