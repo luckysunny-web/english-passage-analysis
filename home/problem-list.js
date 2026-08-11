@@ -18,5 +18,10 @@ window.ENGLISH_PASSAGE_PROBLEMS = [
     number: 35,
     title: '\uACF5\uACF5 \uAE30\uACC4 \uC2DC\uACC4\uC640 \uACBD\uC81C \uBC1C\uC804',
     href: '../problems/problem-35/index.html'
+  },
+  {
+    number: 36,
+    title: '\uAE30\uC5C5\uC5D0\uC11C \uACF5\uAC10\uC774 \uC758\uBBF8\uD558\uB294 \uB2E4\uC591\uD55C \uBC29\uC2DD',
+    href: '../problems/problem-36/index.html'
   }
 ];
